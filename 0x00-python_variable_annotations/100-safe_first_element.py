@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-""" The types of the elements of the input are not know"""
-from typing import List, Union
+'''Duck typing first element in a sequence'''
 
 
-def safe_first_element(lst: Union[List, str]) -> Union[str, None]:
+from typing import Any, Sequence, Union
+
+
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
+    '''returns the first element in a sequence'''
     if lst:
         return lst[0]
     else:
-        """type element is not known"""
         return None
