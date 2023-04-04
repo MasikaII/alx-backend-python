@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-using asyncio.gather
+Using asyncio.gather
 """
 
 
@@ -13,8 +13,8 @@ async def measure_runtime() -> float:
     """
     Measures and returns total runtime
     """
-    begin = time.perf_counter()
-    chore = [asyncio.create_chore(async_comprehension()) for i in range(4)]
-    result = await asyncio.gather(*chore)
-    aggregate_time = time.perf_counter() - begin
-    return aggregate_time
+    start = time.perf_counter()
+    task = [asyncio.create_task(async_comprehension()) for i in range(4)]
+    result = await asyncio.gather(*task)
+    total_time = time.perf_counter() - start
+    return total_time
